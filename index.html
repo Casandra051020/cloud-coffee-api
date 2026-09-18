@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Cloud Coffee API</title>
-  <style>
-    body { font-family: Arial; background: #f5f5f5; text-align: center; }
-    h1 { color: #6b4226; }
-    p { color: #333; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Coffee API</title>
+    <!-- 1. Enlazamos tu archivo de estilos externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bienvenido a Cloud Coffee</h1>
-  <p>Tu café en la nube ☁️☕</p>
 
-  <section>
-  <h2>Promociones</h2>
-  <form>
-    <label>Tipo de cliente:</label>
-    <select id="promo">
-      <option value="estudiante">Estudiante -10%</option>
-      <option value="cumple">Cumpleaños -15%</option>
-    </select>
-  </form>
-</section>
+    <!-- 2. Agregamos un contenedor principal para centrar todo el diseño -->
+    <main>
+        <h1>Bienvenido a Cloud Coffee</h1>
+        <p>Tu café en la nube ☁️☕</p>
+
+        <section>
+            <h2>Promociones</h2>
+            <form>
+                <label for="promo">Tipo de cliente:</label>
+                <select id="promo" name="promo">
+                    <option value="estudiante">Estudiante -10%</option>
+                    <option value="cumple">Cumpleaños -15%</option>
+                </select>
+            </form>
+        </section>
+    </main>
+
 </body>
 </html>
-s
