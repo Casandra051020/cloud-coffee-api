@@ -1,0 +1,30 @@
+name: Integración Continua (CI)
+
+# Configuración de detonadores (eventos)
+on:
+  push:
+    branches: [ "feature/descuento-capuchino", "main" ]
+  pull_request:
+    branches: [ "feature/descuento-capuchino", "main" ]
+
+# Trabajos a ejecutar en la canalización
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Descargar el código del repositorio en el servidor de pruebas
+      - name: Descargar código fuente (Checkout)
+        uses: actions/checkout@v4
+
+      # 2. Configurar el entorno de ejecución
+      - name: Configurar Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Verificar que los archivos principales existan en el proyecto
+      - name: Validar estructura del proyecto
+        run: |
+          ls -la
+          test -f index.html
+          test -f script.js

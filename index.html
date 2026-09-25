@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Cloud Coffee API</title>
-  <style>
-    body { font-family: Arial; background: #f5f5f5; text-align: center; }
-    h1 { color: #6b4226; }
-    p { color: #333; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Coffee API</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Bienvenido a Cloud Coffee</h1>
-  <p>Tu café en la nube ☁️☕</p>
-
-  <section>
-  <h2>Promociones</h2>
-  <form>
-    <label>Tipo de cliente:</label>
-    <select id="promo">
-      <option value="estudiante">Estudiante -10%</option>
-      <option value="cumple">Cumpleaños -15%</option>
-    </select>
-  </form>
-</section>
+    <main>
+        <h1>Bienvenido a Cloud Coffee</h1>
+        <p>Tu café en la nube ☁️☕</p>
+        <section>
+            <h2>Promociones</h2>
+            <form id="form-promo">
+                <label for="promo">Tipo de cliente:</label>
+                <select id="promo" name="promo">
+                    <option value="estudiante">Estudiante -10%</option>
+                    <option value="cumple">Cumpleaños -15%</option>
+                </select>
+                
+                <!-- Campos nuevos agregados -->
+                <label for="precio">Precio base ($):</label>
+                <input type="number" id="precio" placeholder="Ej. 50" required>
+                
+                <button type="button" id="btn-calcular">Calcular total</button>
+            </form>
+            <!-- Contenedor para mostrar el resultado -->
+            <p id="resultado"></p>
+        </section>
+    </main>
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
-s
