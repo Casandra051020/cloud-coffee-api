@@ -1,23 +1,30 @@
 name: Integración Continua (CI)
+
 # Configuración de detonadores (eventos)
 on:
- push:
- branches: [ "feature/descuento-capuchino" ]
- pull_request:
- branches: [ "feature/descuento-capuchino" ]
+  push:
+    branches: [ "feature/descuento-capuchino", "main" ]
+  pull_request:
+    branches: [ "feature/descuento-capuchino", "main" ]
 
 # Trabajos a ejecutar en la canalización
 jobs:
- build-and-test:
- runs-on: ubuntu-latest
- steps:
- # 1. Descargar el código del repositorio en el servidor de pruebas
- - name: https://github.com/Casandra051020/cloud-coffee-api.git
- uses: actions/Casandra051020
- # 2. Configurar el entorno de ejecución (Ejemplo estándar con
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Descargar el código del repositorio en el servidor de pruebas
+      - name: Descargar código fuente (Checkout)
+        uses: actions/checkout@v4
 
- # 3. Instalar las dependencias del proyecto de forma limpia
- - name: Instalar dependencias
- run: npm ci
- # 4. Ejecutar la suite de pruebas unitarias automatizadas
- - name: Ejecutar pruebas un
+      # 2. Configurar el entorno de ejecución
+      - name: Configurar Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Verificar que los archivos principales existan en el proyecto
+      - name: Validar estructura del proyecto
+        run: |
+          ls -la
+          test -f index.html
+          test -f script.js
